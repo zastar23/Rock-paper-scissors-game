@@ -1,0 +1,78 @@
+// Neutrals
+$dark-text: hsl(229, 25%, 31%);
+$score-text: hsl(229, 64%, 46%);
+$header-outline: hsl(217, 16%, 45%);
+$neutral: #fff;
+
+.rules--modal {
+	height: 100vh;
+	position: absolute;
+	background-color: #fff;
+	top: 0;
+	// bottom: 0;
+	right: 0;
+	left: 0;
+	text-align: center;
+	padding: 4%;
+
+	@media (min-width: 1000px) {
+		max-height: 40rem;
+		max-width: 40rem;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		text-align: left;
+		border-radius: 10px;
+		box-shadow: 0 0 0 100vmax rgba(0 0 0 / 0.5);
+	}
+
+	&--heading {
+		margin: 3rem 0;
+		text-transform: uppercase;
+		color: $dark-text;
+
+		@media (min-width: 600px) {
+			font-size: 3rem;
+		}
+
+		@media (min-width: 1000px) {
+			margin: 0;
+		}
+	}
+
+	&--sketch {
+		width: 100%;
+		height: 15rem;
+
+		@media (min-width: 600px) {
+			height: 25rem;
+			margin-top: 5rem;
+		}
+
+		@media (min-width: 1000px) {
+			margin-top: 3rem;
+		}
+	}
+
+	&--icon-close {
+		width: 1.5rem;
+		height: 1.5rem;
+		margin-top: 4rem;
+
+		@media (min-width: 600px) {
+			height: 3rem;
+			width: 3rem;
+		}
+
+		@media (min-width: 1000px) {
+			position: absolute;
+			top: 8%;
+			right: 10%;
+			margin-top: 0;
+		}
+
+		&:hover {
+			cursor: pointer;
+		}
+	}
+}

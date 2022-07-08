@@ -1,0 +1,242 @@
+@import "./rules-modal";
+
+// Typography
+@import url("https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@600;700&display=swap");
+$font-family: "Barlow Semi Condensed", sans-serif;
+
+// Neutrals
+$dark-text: hsl(229, 25%, 31%);
+$score-text: hsl(229, 64%, 46%);
+$header-outline: hsl(217, 16%, 45%);
+$neutral: #fff;
+
+// Gradients
+$scissors-gradient: linear-gradient(hsl(39, 89%, 49%), hsl(40, 84%, 53%));
+$paper-gradient: radial-gradient(hsl(230, 89%, 62%), hsl(230, 89%, 65%));
+$rock-gradient: radial-gradient(hsl(349, 71%, 52%), hsl(349, 70%, 56%));
+$lizard-gradient: linear-gradient(hsl(261, 73%, 60%), hsl(261, 72%, 63%));
+$spock-gradient: linear-gradient(hsl(189, 59%, 53%), hsl(189, 58%, 57%));
+// Background
+$background-gradient: radial-gradient(hsl(214, 47%, 23%), hsl(237, 49%, 15%));
+
+*,
+*::after,
+*::before {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body {
+	background: $background-gradient;
+	background-repeat: no-repeat;
+	background-size: cover;
+	min-height: 100vh;
+	font-family: $font-family;
+	max-width: 50rem;
+	margin: 0 auto;
+}
+
+.header {
+	border: 4px solid $header-outline;
+	border-radius: 10px;
+	margin: 1rem;
+
+	&--container {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		gap: 3rem;
+		margin: 0.5rem auto;
+		padding: 0 0.5rem;
+
+		&--title {
+			color: $neutral;
+			font-size: 0.7rem;
+			line-height: 0.8;
+
+			& span {
+				display: flex;
+			}
+
+			@media (min-width: 700px) {
+				font-size: 1rem;
+			}
+		}
+
+		&--score {
+			background-color: $neutral;
+			border-radius: 5px;
+			text-align: center;
+			width: 4.5rem;
+			height: 4.5rem;
+		}
+	}
+
+	.game-score {
+		color: $score-text;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		margin: 1rem 0;
+		text-transform: uppercase;
+		letter-spacing: 2px;
+		font-weight: 600;
+		font-size: 0.6rem;
+
+		@media (min-width: 700px) {
+			font-size: 1rem;
+		}
+
+		&-value {
+			font-size: 2rem;
+			font-weight: 700;
+			color: $dark-text;
+
+			@media (min-width: 700px) {
+				font-size: 2rem;
+			}
+		}
+	}
+}
+
+.sign {
+	width: 2rem;
+	height: 2rem;
+
+	@media (min-width: 400px) {
+		width: 3rem;
+		height: 3rem;
+	}
+
+	@media (min-width: 700px) {
+		width: 5rem;
+		height: 5rem;
+	}
+}
+
+.main {
+	margin-top: 2rem;
+	padding: 2rem;
+
+	&--controls {
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		grid-template-rows: repeat(3, auto);
+		// border: 2px solid red;
+		margin: 0 auto;
+
+		&--btn-paper {
+			border: 10px solid hsl(230, 89%, 62%);
+			border-radius: 100%;
+			height: 5rem;
+			grid-column: 1;
+			grid-row: 1;
+
+			&:hover {
+				cursor: pointer;
+				transform: scale(1.1);
+			}
+
+			@media (min-width: 400px) {
+				height: 7rem;
+			}
+
+			@media (min-width: 700px) {
+				height: 15rem;
+				border: 20px solid hsl(230, 89%, 62%);
+			}
+		}
+
+		&--btn-rock {
+			border: 10px solid hsl(349, 71%, 52%);
+			border-radius: 100%;
+			height: 5rem;
+			grid-column: 2;
+			grid-row: 3;
+
+			&:hover {
+				cursor: pointer;
+				transform: scale(1.1);
+				box-shadow: 0 0 10px 15px $rock-gradient;
+			}
+
+			@media (min-width: 400px) {
+				height: 7rem;
+			}
+
+			@media (min-width: 700px) {
+				height: 15rem;
+				border: 20px solid hsl(349, 71%, 52%);
+			}
+		}
+
+		&--btn-scissors {
+			border: 10px solid hsl(39, 89%, 49%);
+			border-radius: 100%;
+			height: 5rem;
+			grid-column: 3;
+			grid-row: 1;
+
+			&:hover {
+				cursor: pointer;
+				transform: scale(1.1);
+			}
+
+			@media (min-width: 400px) {
+				height: 7rem;
+			}
+
+			@media (min-width: 700px) {
+				height: 15rem;
+				border: 20px solid hsl(39, 89%, 49%);
+			}
+		}
+	}
+
+	.bg-triangle {
+		width: 80%;
+		height: 8rem;
+		margin: 2rem auto;
+		grid-column: 1 / span 3;
+		grid-row: 1 / span 3;
+
+		@media (min-width: 700px) {
+			height: 20rem;
+		}
+	}
+}
+
+footer {
+	margin-top: 3rem;
+	text-align: center;
+
+	.rules {
+		&--btn {
+			background-color: transparent;
+			color: $neutral;
+			padding: 0.5rem 2rem;
+			border-radius: 5px;
+			border-color: $neutral;
+			text-transform: uppercase;
+			letter-spacing: 2px;
+			font-weight: 700;
+
+			&:hover {
+				color: $dark-text;
+				background-color: $neutral;
+				cursor: pointer;
+			}
+		}
+
+		@media (min-width: 700px) {
+			text-align: right;
+		}
+	}
+
+	.game-mode {
+		color: $neutral;
+		margin: 2rem;
+	}
+}
