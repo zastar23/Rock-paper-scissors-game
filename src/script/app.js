@@ -2,8 +2,9 @@
 
 const playButtons = document.querySelector(".main--controls");
 const rulesButton = document.querySelector(".rules--btn");
+const gameTitle = document.querySelector(".game-title");
 
-const gameMode = document.querySelector("#mode").value;
+const gameMode = document.querySelector("#mode");
 
 const closeRules = document.querySelector(".rules--modal--icon-close");
 
@@ -46,7 +47,8 @@ playButtons.addEventListener("click", (e) => {
 						width="100"
 						height="100"
             class="sign"
-					/>`
+					/>
+					</button>`
 			);
 		}, 2000);
 		computerPick();
@@ -111,7 +113,7 @@ const computerPick = function () {
 						width="100"
 						height="100"
             class="sign"
-					/>`
+					/></button>`
 			);
 		}, 3000);
 	}
@@ -127,7 +129,8 @@ const computerPick = function () {
 						width="100"
 						height="100"
             class="sign"
-					/>`
+					/>
+					</button>`
 			);
 		}, 3000);
 	}
@@ -148,7 +151,7 @@ const computerPick = function () {
 			);
 		}, 3000);
 	}
-	restartGame();
+
 	return cpChoice;
 };
 
@@ -219,6 +222,7 @@ const pickWinner = function () {
 				break;
 		}
 	}, 3500);
+	restartGame();
 };
 
 const restartGame = function () {
@@ -230,3 +234,26 @@ const restartGame = function () {
 		playerField.innerHTML = "";
 	});
 };
+
+// Game mode change
+
+gameMode.addEventListener("change", (e) => {
+	console.log(e.target.value);
+	if (e.target.value === "extra") {
+		document.querySelector(".rules--modal--sketch").src =
+			"./images/image-rules-bonus.svg";
+
+		gameTitle.insertAdjacentHTML(
+			"beforeend",
+			`<span>Lizard</span><span>Spock</span>`
+		);
+
+		bgTriangle.src = "./images/bg-pentagon.svg";
+	}
+	if (e.target.value === "classic") {
+		document.querySelector(".rules--modal--sketch").src =
+			"./images/image-rules.svg";
+		gameTitle.innerHTML = `<span>Rock</span><span>Paper</span><span>Scissors</span>`;
+		bgTriangle.src = "./images/bg-triangle.svg";
+	}
+});
