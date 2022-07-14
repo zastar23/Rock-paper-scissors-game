@@ -1,4 +1,5 @@
 @import "./rules-modal";
+@import "./animations";
 
 // Typography
 @import url("https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@600;700&display=swap");
@@ -11,7 +12,11 @@ $header-outline: hsl(217, 16%, 45%);
 $neutral: #fff;
 
 // Gradients
-$scissors-gradient: linear-gradient(hsl(39, 89%, 49%), hsl(40, 84%, 53%));
+$scissors-gradient: radial-gradient(
+	circle at center,
+	hsl(39, 89%, 49%),
+	hsl(40, 84%, 53%)
+);
 $paper-gradient: radial-gradient(hsl(230, 89%, 62%), hsl(230, 89%, 65%));
 $rock-gradient: radial-gradient(hsl(349, 71%, 52%), hsl(349, 70%, 56%));
 $lizard-gradient: linear-gradient(hsl(261, 73%, 60%), hsl(261, 72%, 63%));
@@ -79,7 +84,7 @@ body {
 		flex-direction: column;
 		justify-content: center;
 		align-items: center;
-		margin: 1rem 0;
+		margin: 0.5rem 0;
 		text-transform: uppercase;
 		letter-spacing: 2px;
 		font-weight: 600;
@@ -116,9 +121,34 @@ body {
 	}
 }
 
+.column {
+	grid-column: 1 !important;
+}
+
+.column-rock {
+	grid-column: 1 !important;
+	grid-row: 1 !important;
+}
+
+.cp-column {
+	grid-column: 3 !important;
+}
+
+.cp-column-rock {
+	grid-column: 3 !important;
+	grid-row: 1 !important;
+}
+
 .main {
 	margin-top: 2rem;
 	padding: 2rem;
+
+	&--player--choice {
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+
+		border: 2px solid red;
+	}
 
 	&--controls {
 		display: grid;
@@ -140,7 +170,7 @@ body {
 			}
 
 			@media (min-width: 400px) {
-				height: 7rem;
+				height: 6rem;
 			}
 
 			@media (min-width: 700px) {
@@ -159,7 +189,6 @@ body {
 			&:hover {
 				cursor: pointer;
 				transform: scale(1.1);
-				box-shadow: 0 0 10px 15px $rock-gradient;
 			}
 
 			@media (min-width: 400px) {
@@ -208,8 +237,57 @@ body {
 	}
 }
 
+.winner--modal {
+	text-align: center;
+	margin-top: 2rem;
+	display: none;
+	margin-top: -10rem;
+
+	@media (min-width: 700px) {
+		margin-top: -30rem;
+	}
+
+	&--heading {
+		font-size: 2.5rem;
+		color: $neutral;
+		text-transform: uppercase;
+		margin-bottom: 1rem;
+
+		@media (min-width: 700px) {
+			font-size: 3rem;
+		}
+
+		@media (min-width: 1000px) {
+			font-size: 4rem;
+		}
+	}
+}
+
+.modal--restart {
+	padding: 1rem 2.5rem;
+	font-size: 1rem;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	font-weight: 700;
+	border-radius: 10px;
+	color: $dark-text;
+
+	@media (min-width: 700px) {
+		font-size: 1.5rem;
+	}
+
+	@media (min-width: 1000px) {
+		font-size: 2rem;
+	}
+
+	&:hover {
+		color: red;
+		cursor: pointer;
+	}
+}
+
 footer {
-	margin-top: 3rem;
+	// margin-top: 3rem;
 	text-align: center;
 
 	.rules {

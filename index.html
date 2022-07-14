@@ -13,8 +13,8 @@
 		/>
 
 		<title>Frontend Mentor | Rock, Paper, Scissors</title>
-    <link rel="stylesheet" href="./style/main.css">
-    <script src="./src/script/app.js" defer></script>
+		<link rel="stylesheet" href="./style/main.css" />
+		<script src="./src/script/app.js" defer></script>
 
 		<!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
 		<style>
@@ -24,7 +24,7 @@
 				color: #fff;
 			}
 			.attribution a {
-				color: hsl(40, 84%, 53%)
+				color: hsl(40, 84%, 53%);
 			}
 		</style>
 	</head>
@@ -44,66 +44,82 @@
 			</div>
 		</header>
 		<main class="main">
+			<div class="main--player--choice"></div>
 			<div class="main--controls">
-				<img src="./images/bg-triangle.svg" alt="bg image" width="100" height="100" class="bg-triangle">
-				<button class="main--controls--btn-paper">
+				<img
+					src="./images/bg-triangle.svg"
+					alt="bg image"
+					width="100"
+					height="100"
+					class="bg-triangle"
+				/>
+				<button
+					class="main--controls--btn-paper delegation down"
+					id="select"
+					data-nr="0"
+				>
 					<img
 						src="./images/icon-paper.svg"
 						alt="paper icon"
 						width="100"
 						height="100"
-            class="sign"
+						class="sign"
 					/>
 				</button>
-				<button class="main--controls--btn-scissors">
+				<button
+					class="main--controls--btn-scissors delegation diagonal"
+					id="select"
+					data-nr="1"
+				>
 					<img
 						src="./images/icon-scissors.svg"
 						alt="scissors icon"
 						width="100"
 						height="100"
-            class="sign"
+						class="sign"
 					/>
 				</button>
-				<button class="main--controls--btn-rock">
+				<button
+					class="main--controls--btn-rock delegation left"
+					id="select"
+					data-nr="2"
+				>
 					<img
 						src="./images/icon-rock.svg"
 						alt="rock icon"
 						width="100"
 						height="100"
-            class="sign"
+						class="sign"
 					/>
 				</button>
 			</div>
-			
 
-			
-<!-- 
 			<div class="winner--modal">
-				<h2 class="winner--modal--heading">You win!</h2>
+				<h2 class="winner--modal--heading">Style text</h2>
 				<button class="modal--restart">Play Again</button>
 			</div>
-		</main> -->
-
-		<!-- <div class="loser--modal">
-			<h2 class="loser--modal--heading">You lose</h2>
-			<button class="modal--restart">Play Again</button>
-		</div> -->
+		</main>
+		<div class="rules--modal display">
+			<h2 class="rules--modal--heading">Rules</h2>
+			<img
+				src="./images/image-rules.svg"
+				alt="game rules"
+				width="100"
+				height="100"
+				class="rules--modal--sketch"
+			/>
+			<span class="rules--modal--close"
+				><img
+					src="./images/icon-close.svg"
+					alt="cross icon with close meaning"
+					class="rules--modal--icon-close delegation"
+					width="10"
+					height="10"
+			/></span>
+		</div>
 		<footer>
-      <div class="rules">
-		<!-- <div class="rules--modal">
-
-				<h2 class="rules--modal--heading">Rules</h2>
-				<img src="./images/image-rules.svg" alt="game rules" width="100" height="100" class="rules--modal--sketch">
-				<span class="rules--modal--close"
-					><img
-						src="./images/icon-close.svg"
-						alt="cross icon with close meaning"
-						class="rules--modal--icon-close"
-						width="10"
-						height="10"
-				/></span>
-			</div> -->
-				<button class="rules--btn">Rules</button>
+			<div class="rules">
+				<button class="rules--btn delegation">Rules</button>
 			</div>
 			<div class="game-mode">
 				<label for="mode">Choose game mode:</label>

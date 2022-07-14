@@ -74,6 +74,38 @@
   cursor: pointer;
 }
 
+.display {
+  display: none;
+}
+
+.scale-out-center {
+  animation: scale-out-center 0.5s cubic-bezier(0.55, 0.085, 0.68, 0.53) both;
+}
+
+@keyframes scale-out-center {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(0);
+    opacity: 1;
+  }
+}
+.scale-in-center {
+  animation: scale-in-center 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+}
+
+@keyframes scale-in-center {
+  0% {
+    transform: scale(0);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
 *,
 *::after,
 *::before {
@@ -131,7 +163,7 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin: 1rem 0;
+  margin: 0.5rem 0;
   text-transform: uppercase;
   letter-spacing: 2px;
   font-weight: 600;
@@ -170,9 +202,32 @@ body {
   }
 }
 
+.column {
+  grid-column: 1 !important;
+}
+
+.column-rock {
+  grid-column: 1 !important;
+  grid-row: 1 !important;
+}
+
+.cp-column {
+  grid-column: 3 !important;
+}
+
+.cp-column-rock {
+  grid-column: 3 !important;
+  grid-row: 1 !important;
+}
+
 .main {
   margin-top: 2rem;
   padding: 2rem;
+}
+.main--player--choice {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  border: 2px solid red;
 }
 .main--controls {
   display: grid;
@@ -193,7 +248,7 @@ body {
 }
 @media (min-width: 400px) {
   .main--controls--btn-paper {
-    height: 7rem;
+    height: 6rem;
   }
 }
 @media (min-width: 700px) {
@@ -212,7 +267,6 @@ body {
 .main--controls--btn-rock:hover {
   cursor: pointer;
   transform: scale(1.1);
-  box-shadow: 0 0 10px 15px radial-gradient(hsl(349deg, 71%, 52%), hsl(349deg, 70%, 56%));
 }
 @media (min-width: 400px) {
   .main--controls--btn-rock {
@@ -260,8 +314,59 @@ body {
   }
 }
 
+.winner--modal {
+  text-align: center;
+  margin-top: 2rem;
+  display: none;
+  margin-top: -10rem;
+}
+@media (min-width: 700px) {
+  .winner--modal {
+    margin-top: -30rem;
+  }
+}
+.winner--modal--heading {
+  font-size: 2.5rem;
+  color: #fff;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+@media (min-width: 700px) {
+  .winner--modal--heading {
+    font-size: 3rem;
+  }
+}
+@media (min-width: 1000px) {
+  .winner--modal--heading {
+    font-size: 4rem;
+  }
+}
+
+.modal--restart {
+  padding: 1rem 2.5rem;
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 700;
+  border-radius: 10px;
+  color: hsl(229deg, 25%, 31%);
+}
+@media (min-width: 700px) {
+  .modal--restart {
+    font-size: 1.5rem;
+  }
+}
+@media (min-width: 1000px) {
+  .modal--restart {
+    font-size: 2rem;
+  }
+}
+.modal--restart:hover {
+  color: red;
+  cursor: pointer;
+}
+
 footer {
-  margin-top: 3rem;
   text-align: center;
 }
 footer .rules--btn {
