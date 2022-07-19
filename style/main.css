@@ -248,12 +248,12 @@ body {
 }
 @media (min-width: 400px) {
   .main--controls--btn-paper {
-    height: 6rem;
+    height: 7rem;
   }
 }
 @media (min-width: 700px) {
   .main--controls--btn-paper {
-    height: 15rem;
+    height: 12rem;
     border: 20px solid hsl(230deg, 89%, 62%);
   }
 }
@@ -276,7 +276,7 @@ body {
 }
 @media (min-width: 700px) {
   .main--controls--btn-rock {
-    height: 15rem;
+    height: 12rem;
     border: 20px solid hsl(349deg, 71%, 52%);
   }
 }
@@ -299,20 +299,84 @@ body {
 }
 @media (min-width: 700px) {
   .main--controls--btn-scissors {
-    height: 15rem;
+    height: 12rem;
     border: 20px solid hsl(39deg, 89%, 49%);
   }
 }
+.main--controls--btn-lizard {
+  border: 10px solid hsl(261deg, 73%, 60%);
+  border-radius: 100%;
+  box-shadow: inset 10px -5px 10px hsl(229deg, 25%, 31%);
+  height: 5rem;
+  grid-row: 3;
+  grid-column: 1;
+}
+.main--controls--btn-lizard:hover {
+  cursor: pointer;
+  transform: scale(1.1);
+}
+@media (min-width: 400px) {
+  .main--controls--btn-lizard {
+    height: 7rem;
+  }
+}
+@media (min-width: 700px) {
+  .main--controls--btn-lizard {
+    height: 12rem;
+    border: 20px solid hsl(261deg, 73%, 60%);
+  }
+}
+.main--controls--btn-spock {
+  border: 10px solid hsl(189deg, 58%, 57%);
+  border-radius: 100%;
+  box-shadow: inset 10px -5px 10px hsl(229deg, 25%, 31%);
+  height: 5rem;
+  grid-column: 1;
+  grid-row: 2;
+}
+.main--controls--btn-spock:hover {
+  cursor: pointer;
+  transform: scale(1.1);
+}
+@media (min-width: 400px) {
+  .main--controls--btn-spock {
+    height: 7rem;
+  }
+}
+@media (min-width: 700px) {
+  .main--controls--btn-spock {
+    height: 12rem;
+    border: 20px solid hsl(189deg, 58%, 57%);
+  }
+}
 .main .bg-triangle {
-  width: 80%;
-  height: 8rem;
+  width: 90%;
+  height: 10rem;
   margin: 2rem auto;
   grid-column: 1/span 3;
   grid-row: 1/span 3;
 }
 @media (min-width: 700px) {
   .main .bg-triangle {
-    height: 20rem;
+    min-height: 25rem;
+  }
+}
+
+.bg-pentagon {
+  width: 90%;
+  margin: 2rem auto;
+  grid-column: 1/span 3;
+  grid-row: 1/span 3;
+  height: 15rem !important;
+}
+@media (min-width: 400px) {
+  .bg-pentagon {
+    height: 20rem !important;
+  }
+}
+@media (min-width: 700px) {
+  .bg-pentagon {
+    min-height: 30rem;
   }
 }
 
@@ -394,6 +458,48 @@ footer .rules--btn:hover {
 footer .game-mode {
   color: #fff;
   margin: 2rem;
+}
+
+.extra-scissors-position {
+  grid-column: 2;
+  grid-row: 1;
+}
+
+.extra-paper-position {
+  grid-column: 3;
+  grid-row: 2;
+  margin-top: -1rem;
+}
+@media (min-width: 700px) {
+  .extra-paper-position {
+    margin-top: -2rem;
+  }
+}
+
+.extra-rock-position {
+  grid-column: 3;
+}
+@media (min-width: 700px) {
+  .extra-rock-position {
+    grid-row: -1;
+    margin-top: -10rem;
+  }
+}
+
+.spock-position {
+  margin-top: -1rem;
+}
+@media (min-width: 700px) {
+  .spock-position {
+    margin-top: -2rem;
+  }
+}
+
+@media (min-width: 700px) {
+  .lizard-position {
+    grid-row: -1 !important;
+    margin-top: -10rem !important;
+  }
 }
 
 /*# sourceMappingURL=main.css.map */

@@ -27,7 +27,9 @@ $lizard-gradient: linear-gradient(
 $spock-gradient: linear-gradient(hsl(189, 59%, 53%), hsl(189, 58%, 57%));
 // Background
 $background-gradient: radial-gradient(hsl(214, 47%, 23%), hsl(237, 49%, 15%));
-
+// Button sizes
+$mobile-size: 5rem;
+$tablet-size: 12rem;
 *,
 *::after,
 *::before {
@@ -163,7 +165,7 @@ body {
 			border: 10px solid hsl(230, 89%, 62%);
 			border-radius: 100%;
 			box-shadow: inset 10px -5px 10px $dark-text;
-			height: 5rem;
+			height: $mobile-size;
 			grid-column: 1;
 			grid-row: 1;
 
@@ -173,11 +175,11 @@ body {
 			}
 
 			@media (min-width: 400px) {
-				height: 6rem;
+				height: 7rem;
 			}
 
 			@media (min-width: 700px) {
-				height: 15rem;
+				height: $tablet-size;
 				border: 20px solid hsl(230, 89%, 62%);
 			}
 		}
@@ -186,7 +188,7 @@ body {
 			border: 10px solid hsl(349, 71%, 52%);
 			border-radius: 100%;
 			box-shadow: inset 10px -5px 10px $dark-text;
-			height: 5rem;
+			height: $mobile-size;
 			grid-column: 2;
 			grid-row: 3;
 
@@ -200,7 +202,7 @@ body {
 			}
 
 			@media (min-width: 700px) {
-				height: 15rem;
+				height: $tablet-size;
 				border: 20px solid hsl(349, 71%, 52%);
 			}
 		}
@@ -209,7 +211,7 @@ body {
 			border: 10px solid hsl(39, 89%, 49%);
 			border-radius: 100%;
 			box-shadow: inset 10px -5px 10px $dark-text;
-			height: 5rem;
+			height: $mobile-size;
 			grid-column: 3;
 			grid-row: 1;
 
@@ -223,22 +225,84 @@ body {
 			}
 
 			@media (min-width: 700px) {
-				height: 15rem;
+				height: $tablet-size;
 				border: 20px solid hsl(39, 89%, 49%);
+			}
+		}
+
+		&--btn-lizard {
+			border: 10px solid hsl(261, 73%, 60%);
+			border-radius: 100%;
+			box-shadow: inset 10px -5px 10px $dark-text;
+			height: $mobile-size;
+			grid-row: 3;
+			grid-column: 1;
+
+			&:hover {
+				cursor: pointer;
+				transform: scale(1.1);
+			}
+
+			@media (min-width: 400px) {
+				height: 7rem;
+			}
+
+			@media (min-width: 700px) {
+				height: $tablet-size;
+				border: 20px solid hsl(261, 73%, 60%);
+			}
+		}
+
+		&--btn-spock {
+			border: 10px solid hsl(189, 58%, 57%);
+			border-radius: 100%;
+			box-shadow: inset 10px -5px 10px $dark-text;
+			height: $mobile-size;
+			grid-column: 1;
+			grid-row: 2;
+
+			&:hover {
+				cursor: pointer;
+				transform: scale(1.1);
+			}
+
+			@media (min-width: 400px) {
+				height: 7rem;
+			}
+
+			@media (min-width: 700px) {
+				height: $tablet-size;
+				border: 20px solid hsl(189, 58%, 57%);
 			}
 		}
 	}
 
 	.bg-triangle {
-		width: 80%;
-		height: 8rem;
+		width: 90%;
+		height: 10rem;
 		margin: 2rem auto;
 		grid-column: 1 / span 3;
 		grid-row: 1 / span 3;
 
 		@media (min-width: 700px) {
-			height: 20rem;
+			min-height: 25rem;
 		}
+	}
+}
+
+.bg-pentagon {
+	width: 90%;
+	margin: 2rem auto;
+	grid-column: 1 / span 3;
+	grid-row: 1 / span 3;
+	height: 15rem !important;
+
+	@media (min-width: 400px) {
+		height: 20rem !important;
+	}
+
+	@media (min-width: 700px) {
+		min-height: 30rem;
 	}
 }
 
@@ -321,5 +385,46 @@ footer {
 	.game-mode {
 		color: $neutral;
 		margin: 2rem;
+	}
+}
+
+//  extra game mode positioning
+
+.extra-scissors-position {
+	grid-column: 2;
+	grid-row: 1;
+}
+
+.extra-paper-position {
+	grid-column: 3;
+	grid-row: 2;
+	margin-top: -1rem;
+
+	@media (min-width: 700px) {
+		margin-top: -2rem;
+	}
+}
+
+.extra-rock-position {
+	grid-column: 3;
+
+	@media (min-width: 700px) {
+		grid-row: -1;
+
+		margin-top: -10rem;
+	}
+}
+
+.spock-position {
+	margin-top: -1rem;
+	@media (min-width: 700px) {
+		margin-top: -2rem;
+	}
+}
+
+.lizard-position {
+	@media (min-width: 700px) {
+		grid-row: -1 !important;
+		margin-top: -10rem !important;
 	}
 }

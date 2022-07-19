@@ -95,6 +95,52 @@ playButtons.addEventListener("click", (e) => {
 		computerPick();
 		pickWinner();
 	}
+
+	if (e.target.dataset.nr === "3") {
+		playButtons.classList.remove("scale-in-center");
+		playButtons.classList.add("scale-out-center");
+		setTimeout(() => {
+			playerField.insertAdjacentHTML(
+				"afterbegin",
+				`<button class="main--controls--btn-lizard delegation  scale-in-center lizard column-rock" data-nr='3'>
+					<img
+						src="./images/icon-lizard.svg"
+						alt="rock icon"
+						width="100"
+						height="100"
+            			class="sign"
+						data-nr='3'
+						
+					/>
+				</button>`
+			);
+		}, 2000);
+		computerPick();
+		pickWinner();
+	}
+
+	if (e.target.dataset.nr === "4") {
+		playButtons.classList.remove("scale-in-center");
+		playButtons.classList.add("scale-out-center");
+		setTimeout(() => {
+			playerField.insertAdjacentHTML(
+				"afterbegin",
+				`<button class="main--controls--btn-spock delegation scale-in-center lizard column-rock" data-nr='3'>
+					<img
+						src="./images/icon-spock.svg"
+						alt="rock icon"
+						width="100"
+						height="100"
+            			class="sign"
+						data-nr='4'
+					/>
+				</button>`
+			);
+		}, 2000);
+		computerPick();
+		pickWinner();
+	}
+
 	playerChoice = e.target;
 	return playerChoice;
 });
@@ -145,6 +191,42 @@ const computerPick = function () {
 						alt="rock icon"
 						width="100"
 						height="100"
+            class="sign"
+					/>
+				</button>`
+			);
+		}, 3000);
+	}
+
+	if (cpChoice === 3) {
+		setTimeout(() => {
+			playerField.insertAdjacentHTML(
+				"afterbegin",
+				`<button class="main--controls--btn-lizard delegation  scale-in-center lizard cp-column-rock" data-nr='3'>
+					<img
+						src="./images/icon-lizard.svg"
+						alt="lizard icon"
+						width="100"
+						height="100"
+						id="select"
+            class="sign"
+					/>
+				</button>`
+			);
+		}, 3000);
+	}
+
+	if (cpChoice === 4) {
+		setTimeout(() => {
+			playerField.insertAdjacentHTML(
+				"afterbegin",
+				`<button class="main--controls--btn-spock delegation  scale-in-center lizard cp-column-rock" data-nr='4'>
+					<img
+						src="./images/icon-spock.svg"
+						alt="spock icon"
+						width="100"
+						height="100"
+						id="select"
             class="sign"
 					/>
 				</button>`
@@ -220,6 +302,116 @@ const pickWinner = function () {
 				modalHeading.innerHTML = "You Lost this round!";
 				Number(score.innerHTML--);
 				break;
+
+			case "30":
+				modal.classList.add("scale-in-center");
+				modal.style.display = "block";
+				modalHeading.innerHTML = "You Win this round!";
+				Number(score.innerHTML++);
+				break;
+
+			case "03":
+				modal.classList.add("scale-in-center");
+				modal.style.display = "block";
+				modalHeading.innerHTML = "You Lost this round!";
+				Number(score.innerHTML--);
+				break;
+
+			case "31":
+				modal.classList.add("scale-in-center");
+				modal.style.display = "block";
+				modalHeading.innerHTML = "You Lost this round!";
+				Number(score.innerHTML--);
+				break;
+
+			case "13":
+				modal.classList.add("scale-in-center");
+				modal.style.display = "block";
+				modalHeading.innerHTML = "You Win this round!";
+				Number(score.innerHTML++);
+				break;
+
+			case "32":
+				modal.classList.add("scale-in-center");
+				modal.style.display = "block";
+				modalHeading.innerHTML = "You Lost this round!";
+				Number(score.innerHTML--);
+				break;
+
+			case "23":
+				modal.classList.add("scale-in-center");
+				modal.style.display = "block";
+				modalHeading.innerHTML = "You Win this round!";
+				Number(score.innerHTML++);
+				break;
+
+			case "33":
+				modal.classList.add("scale-in-center");
+				modal.style.display = "block";
+				modalHeading.innerHTML = "It's a draw!";
+				break;
+
+			case "40":
+				modal.classList.add("scale-in-center");
+				modal.style.display = "block";
+				modalHeading.innerHTML = "You Lost this round!";
+				Number(score.innerHTML--);
+				break;
+
+			case "41":
+				modal.classList.add("scale-in-center");
+				modal.style.display = "block";
+				modalHeading.innerHTML = "You Lost this round!";
+				Number(score.innerHTML--);
+				break;
+
+			case "42":
+				modal.classList.add("scale-in-center");
+				modal.style.display = "block";
+				modalHeading.innerHTML = "You Win this round!";
+				Number(score.innerHTML++);
+				break;
+
+			case "43":
+				modal.classList.add("scale-in-center");
+				modal.style.display = "block";
+				modalHeading.innerHTML = "You Lost this round!";
+				Number(score.innerHTML--);
+				break;
+
+			case "44":
+				modal.classList.add("scale-in-center");
+				modal.style.display = "block";
+				modalHeading.innerHTML = "It's a draw!";
+				break;
+
+			case "04":
+				modal.classList.add("scale-in-center");
+				modal.style.display = "block";
+				modalHeading.innerHTML = "You Lost this round!";
+				Number(score.innerHTML--);
+				break;
+
+			case "14":
+				modal.classList.add("scale-in-center");
+				modal.style.display = "block";
+				modalHeading.innerHTML = "You Lost this round";
+				Number(score.innerHTML--);
+				break;
+
+			case "24":
+				modal.classList.add("scale-in-center");
+				modal.style.display = "block";
+				modalHeading.innerHTML = "You Lost this round!";
+				Number(score.innerHTML--);
+				break;
+
+			case "34":
+				modal.classList.add("scale-in-center");
+				modal.style.display = "block";
+				modalHeading.innerHTML = "You Win this round!";
+				Number(score.innerHTML++);
+				break;
 		}
 	}, 3500);
 	restartGame();
@@ -238,7 +430,6 @@ const restartGame = function () {
 // Game mode change
 
 gameMode.addEventListener("change", (e) => {
-	console.log(e.target.value);
 	if (e.target.value === "extra") {
 		document.querySelector(".rules--modal--sketch").src =
 			"./images/image-rules-bonus.svg";
@@ -249,11 +440,67 @@ gameMode.addEventListener("change", (e) => {
 		);
 
 		bgTriangle.src = "./images/bg-pentagon.svg";
+		bgTriangle.classList.add("bg-pentagon");
+		bgTriangle.classList.remove("bg-triangle");
+		playButtons.insertAdjacentHTML(
+			"beforeend",
+			`<button class="main--controls--btn-lizard delegation  scale-in-center lizard-position" id="select" data-nr='3'>
+					<img
+						src="./images/icon-lizard.svg"
+						alt="rock icon"
+						width="100"
+						height="100"
+						data-nr="3"
+	
+            class="sign delegation"
+					/>
+				</button>`
+		);
+
+		playButtons.insertAdjacentHTML(
+			"beforeend",
+			`<button class="main--controls--btn-spock delegation column scale-in-center spock-position" id="select" data-nr='4'>
+					<img
+						src="./images/icon-spock.svg"
+						alt="rock icon"
+						width="100"
+						height="100"
+						data-nr="4"
+						
+            class="sign delegation"
+					/>
+				</button>`
+		);
+		document
+			.querySelector(".main--controls--btn-paper")
+			.classList.add("extra-paper-position");
+		document
+			.querySelector(".main--controls--btn-scissors")
+			.classList.add("extra-scissors-position");
+		document
+			.querySelector(".main--controls--btn-rock")
+			.classList.add("extra-rock-position");
 	}
 	if (e.target.value === "classic") {
+		// change bg
 		document.querySelector(".rules--modal--sketch").src =
 			"./images/image-rules.svg";
 		gameTitle.innerHTML = `<span>Rock</span><span>Paper</span><span>Scissors</span>`;
 		bgTriangle.src = "./images/bg-triangle.svg";
+		bgTriangle.classList.add("bg-triangle");
+		bgTriangle.classList.remove("bg-pentagon");
+		// change buttons
+		document
+			.querySelector(".main--controls--btn-paper")
+			.classList.remove("extra-paper-position");
+		document
+			.querySelector(".main--controls--btn-scissors")
+			.classList.remove("extra-scissors-position");
+		document
+			.querySelector(".main--controls--btn-rock")
+			.classList.remove("extra-rock-position");
+
+		document.querySelector(".main--controls--btn-spock").remove();
+		document.querySelector(".main--controls--btn-lizard").remove();
 	}
 });
